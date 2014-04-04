@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.Project1</id>
-    <name>Figueroa_Austin_Project_1</name>
+    <id>com.FigueroaAustin.Project1</id>
+    <name>Figueroa_Austin_Project1</name>
     <version>1.0</version>
-    <publisher>Austin</publisher>
-    <url>https://github.com/r73002/VFW1404.git</url>
+    <publisher>Austin Figueroa</publisher>
+    <url>http://</url>
     <description>not specified</description>
-    <copyright>2014 by Austin</copyright>
+    <copyright>2014 by Austin Figueroa</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>f80ee5ea-27e2-4f24-a371-104beb88ce9e</guid>
+    <guid>f2cdc4da-5f32-46a0-a48e-39a4d5fffbed</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>

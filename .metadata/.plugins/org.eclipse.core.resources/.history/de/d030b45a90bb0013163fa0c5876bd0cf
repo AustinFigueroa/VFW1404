@@ -1,0 +1,126 @@
+var movieNames = ["V for Vendetta", "Titanic", "Ride Along", "The Great Gatsby","Fantastic 4","The Bank Job", "Patriot"];
+
+
+var changeText = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel1 = Ti.UI.createLabel({
+		text: movieNames[0],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel1);
+	};
+
+var changeText2 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel2 = Ti.UI.createLabel({
+		text: movieNames[1],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel2);
+	};
+	 
+var changeText3 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel3 = Ti.UI.createLabel({
+		text: movieNames[2],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel3);
+	};
+	  
+var changeText4 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel4 = Ti.UI.createLabel({
+		text: movieNames[3],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel4);
+	};
+	  
+var changeText5 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel5 = Ti.UI.createLabel({
+		text: movieNames[4],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel5);
+	};
+    
+ var changeText6 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+		var movieLabel6 = Ti.UI.createLabel({
+		text: movieNames[5],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	  });
+	  myFirstView.add(movieLabel6);
+	};
+	  
+var changeText7 = function(){
+	myThirdText.hide();
+	myThirdText = null;
+	
+	var movieLabel7 = Ti.UI.createLabel({
+		text: movieNames[6],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	   });
+	myFirstView.add(movieLabel7);
+	};
+	
+
+myThirdView.addEventListener("click",changeText);
+myThirdView.addEventListener("click",changeText2);
+myThirdView.addEventListener("click",changeText3);
+myThirdView.addEventListener("click",changeText4);
+myThirdView.addEventListener("click",changeText5);
+myThirdView.addEventListener("click",changeText6);
+myThirdView.addEventListener("click",changeText7);
+myThirdView.addEventListener("click",changeText);
+
+mySecondView.addEventListener("click",changeText7);
+mySecondView.addEventListener("click",changeText6);
+mySecondView.addEventListener("click",changeText5);
+mySecondView.addEventListener("click",changeText4);
+mySecondView.addEventListener("click",changeText3);
+mySecondView.addEventListener("click",changeText2);
+mySecondView.addEventListener("click",changeText);
+mySecondView.addEventListener("click",changeText7);

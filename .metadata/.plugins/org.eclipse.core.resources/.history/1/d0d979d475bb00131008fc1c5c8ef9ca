@@ -1,0 +1,203 @@
+Ti.UI.setBackgroundColor("#fff");
+
+var movieNames = ["V for Vendetta", "Titanic", "Ride Along", "The Great Gatsby","Fantastic 4","The Bank Job", "Patriot"];
+
+var mainWindow = Ti.UI.createWindow({
+	
+	backgroundColor: "#fff",
+	backgroundImage: "CustomBG.png",
+	backgroundRepeat: true,
+	top: 20,
+});
+
+var myFirstView = Ti.UI.createView({
+	backgroundColor: "#fff",
+	borderColor: "#000",
+	borderRadius: 5,
+	borderWidth: 1,
+	top: 30,
+	left: 20,
+	right: 20,
+	bottom: 120
+});
+
+var mySecondView = Ti.UI.createView({
+	backgroundColor: "#000",
+	borderColor: "#000",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 50,
+	width: 75,
+	bottom: 35,
+	left: 40,
+});
+
+var myThirdView = Ti.UI.createView({
+	backgroundColor: "#000",
+	borderColor: "#000",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 50,
+	width: 75,
+	bottom: 35,
+	right: 40,
+});
+var myFourthView = Ti.UI.createView({
+	backgroundColor: "#333",
+	borderColor: "#000",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 110,
+	bottom: 5,
+	left:20,
+	right:20
+	});
+
+var myText = Ti.UI.createLabel({
+	text:"Previous",
+	color:"red",
+	font: {fontSize: 14, fontFamily: "Arial"}
+});
+
+var mySecondText = Ti.UI.createLabel({
+	text:"Next",
+	color:"red",
+	font: {fontSize: 14, fontFamily: "Arial"}
+});
+
+var myThirdText = Ti.UI.createLabel({
+	text: "Movies I saw last week.",
+	font: {fontSize: 16, fontFamily: "Arial"},
+	textAlign: "center",
+	top: 25,
+	right: 25,
+	left: 25,
+	bottom:25
+});
+
+var changeText = function(){
+	myThirdText.hide();
+	changeText7.hide();
+	
+	var movieLabel1 = Ti.UI.createLabel({
+		text: movieNames[0],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	
+	});
+	myFirstView.add(movieLabel1);
+};
+
+var changeText2 = function(){
+	changeText.hide();
+	
+	var movieLabel2 = Ti.UI.createLabel({
+		text: movieNames[1],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel2);
+};
+
+var changeText3 = function(){
+	changeText2.hide();
+	
+	var movieLabel3 = Ti.UI.createLabel({
+		text: movieNames[2],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel3);
+};
+
+var changeText4 = function(){
+	changeText3.hide();
+	
+	var movieLabel4 = Ti.UI.createLabel({
+		text: movieNames[3],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel4);
+};
+
+var changeText5 = function(){
+	changeText4.hide();
+		
+	var movieLabel5 = Ti.UI.createLabel({
+		text: movieNames[4],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel5);
+};
+
+var changeText6 = function(){
+	changeText5.hide();
+	
+	var movieLabel6 = Ti.UI.createLabel({
+		text: movieNames[5],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel6);
+};
+	
+var changeText7 = function(){
+	changeText6.hide();
+	var movieLabel7 = Ti.UI.createLabel({
+		text: movieNames[6],
+		textAlign: "center",
+	    top: 25,
+	    right: 25,
+	    left: 25,
+	    bottom:25
+	});
+	myFirstView.add(movieLabel7);
+};
+	
+
+
+
+myThirdView.addEventListener("click", changeText);
+
+myThirdView.addEventListener("click", changeText2);
+
+myThirdView.addEventListener("click", changeText3);
+
+myThirdView.addEventListener("click", changeText4);
+
+myThirdView.addEventListener("click", changeText5);
+
+myThirdView.addEventListener("click", changeText6);
+
+myThirdView.addEventListener("click", changeText7);
+
+
+
+
+
+
+mainWindow.add(myFirstView,myFourthView,mySecondView,myThirdView);
+mySecondView.add(myText);
+myThirdView.add(mySecondText);
+myFirstView.add(myThirdText);
+mainWindow.open();
