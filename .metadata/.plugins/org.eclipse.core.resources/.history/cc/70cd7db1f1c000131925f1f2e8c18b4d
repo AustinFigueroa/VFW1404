@@ -1,0 +1,101 @@
+var data = {
+	"magic":{
+		"headTitle": "Magic",
+		"footTitle": "Mana Based",
+		"combatStyles": [
+		    {
+			"title": "Fireball", 
+			"description": "A fireball burns your target and blasts them back a step."
+			},
+			{
+				"title": "Shock", 
+			    "description": "A shock electrocutes opponents, damaging and momentarily stunning them."
+			},
+            {
+            	"title": "Ice Storm",
+            	"description": "A ice storm summons frozen shards that rain down destruction on your foes."
+            },
+            {
+            	"title": "Vortex",
+            	"description": "A vortex creates a windstorm that picks up enemies and hurls them around, preventing them from attacking and potentially knocking them into objects."
+            },
+            {
+            	"title": "Force Push",
+            	"description": "A force push magically propels enemies away from you. You can knock them into walls or off ledges for extra damage."
+            }, 
+            {
+            	"title": "Blades", 
+            	"description": "Blades conjures magical swords that seek out and impale enemies."
+            }
+		]
+	},
+	"weapons":{
+		"headTitle": "Weapons",
+		"footTitle": "Stamina Based",
+		"combatStyles": [
+		    {
+		    	"title": "Swords", 
+		    	"description": "Swords are very fast weapons, designed for quick and agile fighting styles."
+		    }, 
+            {
+            	"title":"Hammers", 
+            	"description": "Hammers do more damage than swords, but are heavier and slower to swing"
+            }, 
+            {
+            	"title": "Pistols", 
+            	"description": "Compact and realiable, pistols have large magazines and reload quickly."
+            }, 
+            {
+            	"title": "Rifles", 
+            	"description": "Rifles deal greater damage than pistols, but they have smaller magazines and aren/'/t as quick to reload."
+            }
+
+		]
+	}
+}; 
+
+var mainWindow = Ti.UI.createWindow({
+	title: "Combat Styles",
+	backgroundColor: "dadada"
+});
+
+var titleView = Ti.UI.createView({
+	height: 65,
+	backgroundColor: "#fff",
+	top: 0
+});
+
+var border = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: titleView.height + titleView.top
+});
+
+var titleLabel = Ti.UI.createLabel({
+	text: "Different Ways of Combat",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+
+
+var makeUI = function(){
+	var spacing = 80;
+	for(n in data){
+		for(var n=0, j=data[n].magic.length; n<j; n++)
+			for(var k=0, l=data[n].combatStyles.length; k=l; l++)
+				for(var x in data[n].combatStyles[p]){
+		    var theRow = Ti.UI.createTableViewRow({
+				title: data[n].combatStyles[p],
+				desc: data[n].combatStyle[p][x]),
+			    hasChild: true
+	}
+}
+
+makeUI();
+
+titleView.add(titleLabel);
+mainWindow.add(titleView, border);
+
+mainWindow.open();

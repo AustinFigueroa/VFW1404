@@ -1,0 +1,136 @@
+var data = {
+	"magic":{
+		"headTitle": "Magic",
+		"footTitle": "Mana Based",
+		"combatStyles": [
+		    {
+			"title": "Fireball", 
+			"description": "A fireball burns your target and blasts them back a step."
+			},
+			{
+				"title": "Shock", 
+			    "description": "A shock electrocutes opponents, damaging and momentarily stunning them."
+			},
+            {
+            	"title": "Ice Storm",
+            	"description": "A ice storm summons frozen shards that rain down destruction on your foes."
+            },
+            {
+            	"title": "Vortex",
+            	"description": "A vortex creates a windstorm that picks up enemies and hurls them around, preventing them from attacking and potentially knocking them into objects."
+            },
+            {
+            	"title": "Force Push",
+            	"description": "A force push magically propels enemies away from you. You can knock them into walls or off ledges for extra damage."
+            }, 
+            {
+            	"title": "Blades", 
+            	"description": "Blades conjures magical swords that seek out and impale enemies."
+            }
+		]
+	},
+	"weapons":{
+		"headTitle": "Weapons",
+		"footTitle": "Stamina Based",
+		"combatStyles": [
+		    {
+		    	"title": "Swords", 
+		    	"description": "Swords are very fast weapons, designed for quick and agile fighting styles."
+		    }, 
+            {
+            	"title":"Hammers", 
+            	"description": "Hammers do more damage than swords, but are heavier and slower to swing"
+            }, 
+            {
+            	"title": "Pistols", 
+            	"description": "Compact and realiable, pistols have large magazines and reload quickly."
+            }, 
+            {
+            	"title": "Rifles", 
+            	"description": "Rifles deal greater damage than pistols, but they have smaller magazines and aren/'/t as quick to reload."
+            }
+
+		]
+	}
+};
+
+var mainWindow = Ti.UI.createWindow({
+	title: "Different Ways of Combat",
+	backgroundColor: "dadada"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+var combatTables = Ti.UI.createTableView({
+	top: 66
+});
+
+if(Ti.Platform.name === "iPhone OS"){
+	combatTables.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+}
+
+var magicSection = Ti.UI.createTableViewSection({
+	headerTitle: "Magical Attacks",
+	footerTitle: "Mana Based"
+});
+
+var weaponsSection = Ti.UI.createTableViewSection({
+	headerTitle: "Melee Attacks",
+	footerTitle: "Stamina Based"
+});
+
+var getDetail = function (){
+	var detailWindow = Ti.UI.createWindow({
+		title: this.text,
+	    backgroundColor: "dadada"
+	});
+	var detailText = Ti.UI.createLabel({
+		text: this.details,
+		top: 30,
+		left: 15,
+		right: 15
+	});
+	detailWindow.add(detailText);
+	navWindow.openWindow(detailWindow);
+};
+
+//var makeUI = function(){
+	var spacing = 80;
+	for(n in data){
+		var headerLabel = Ti.UI.createLabel({
+			text: data[n].headTitle,
+			left: 15,
+			right: 15,
+			top: spacing,
+			height: 25,
+			backgroundColor: "#333",
+			font:{fontSize: 22, fontFamily: "Arial"},
+			color: "#fafafa"
+		});
+		spacing = headerLabel.top + headerLabel.height + 10;
+		console.log(spacing);
+		for(m in data[n].combatStyles){
+			var combatLabel = Ti.UI.createLabel({
+				text: data[n].combatStyles[m].title,
+				details: data[n].combatStyles[m].description,
+				left:30,
+				right:15,
+				top: spacing,
+				height: 25,
+				backgroundColor: "#ffffff",
+				font: {fontSize: 22, fontFamily: "Arial"},
+				color: "#333"
+			});
+			mainWindow.add(combatLabel);
+			spacing = combatLabel.top + combatLabel.height + 10;
+			combatLabel.addEventListener("click",getDetail);
+		}
+		mainWindow.add(headerLabel);
+		spacing = combatLabel.top + combatLabel.height + 40;
+	}
+};
+	
+makeUI();
+mainWindow.add(combatTables);
+navWindow.open();
