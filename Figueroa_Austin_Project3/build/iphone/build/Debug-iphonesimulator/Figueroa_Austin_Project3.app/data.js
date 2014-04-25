@@ -69,12 +69,12 @@ var size = 70;
 		    width: view.width,
 		    hasChild: true
 		});
-	};
+
 view.add(picView);
 viewContainer.add(view);
+};
 imageWin.add(border);
-imageNavWin.add(viewContainer);
-	
+imageWin.add(viewContainer);
 	
 var getImage = function(dataSource){
 	var imageWindow = Ti.UI.createWindow({

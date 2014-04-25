@@ -60,21 +60,21 @@ var size = 70;
 		top: 10,
 		left: 10,
 		width: size,
-		height:size
+		height:size,
+		hasChild: true
 		});
 		
 		var picView = Ti.UI.createImageView({
 		    image: "images/" + imageFiles[i],
 		    top: 0,
 		    width: view.width,
-		    hasChild: true
-		});
-
+		    		});
+	};
 view.add(picView);
 viewContainer.add(view);
-};
 imageWin.add(border);
 imageWin.add(viewContainer);
+	
 	
 var getImage = function(dataSource){
 	var imageWindow = Ti.UI.createWindow({

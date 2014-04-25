@@ -21,7 +21,7 @@ var size = 70;
 		text: "Close Window",
 		backgroundColor: "#333",
 		color: "#fff",
-		height: 50,
+		height: view.height + 50,
 		font:{fontSize: 14, fontFamily: "Arial"},
 		width: "100%",
 		bottom: 0,
@@ -75,6 +75,7 @@ viewContainer.add(view);
 };
 imageWin.add(border);
 imageWin.add(viewContainer);
+
 	
 var getImage = function(dataSource){
 	var imageWindow = Ti.UI.createWindow({

@@ -75,6 +75,7 @@ viewContainer.add(view);
 };
 imageWin.add(border);
 imageWin.add(viewContainer);
+
 	
 var getImage = function(dataSource){
 	var imageWindow = Ti.UI.createWindow({
