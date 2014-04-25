@@ -53,26 +53,6 @@ var size = 70;
 	backgroundColor: "#fef"
 	});
 
-	for(var i=0; i<imageFiles.length; i++){
-		
-		var view = Ti.UI.createView({
-		backgroundColor: "#fff",
-		top: 10,
-		left: 10,
-		width: size,
-		height:size
-		});
-		
-		var picView = Ti.UI.createImageView({
-		    image: "images/" + imageFiles[i],
-		    top: 0,
-		    width: view.width,
-		    hasChild: true
-		});
-
-view.add(picView);
-viewContainer.add(view);
-};
 imageWin.add(border);
 imageWin.add(viewContainer);
 	
@@ -95,10 +75,29 @@ var getImage = function(dataSource){
 	imageNavWin.openWindow(imageWindow);
 };
 
+for(var i=0; i<imageFiles.length; i++){
+		
+		var view = Ti.UI.createView({
+		backgroundColor: "#fff",
+		top: 10,
+		left: 10,
+		width: size,
+		height:size
+		});
+		
+		var picView = Ti.UI.createImageView({
+		    image: "images/" + imageFiles[i],
+		    top: 0,
+		    width: view.width,
+		    hasChild: true
+		});
+
+view.add(picView);
+viewContainer.add(view);
 picView.addEventListener("click", function(event){
 			getImage(event.source);
 		});
-		
+};		
 
 imageNavWin.add(imageWin);
 imageNavWin.open();
