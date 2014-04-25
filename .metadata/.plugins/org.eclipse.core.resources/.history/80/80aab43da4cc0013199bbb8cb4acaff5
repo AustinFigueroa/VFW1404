@@ -1,0 +1,16 @@
+var imageWindow = Ti.UI.createWindow({
+		title: dataSource.image,
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	
+	var imageView = Ti.UI.createImageView({
+		image: dataSource.image,
+		top: 25,
+		left: 25,
+		right: 25,
+		bottom: 25,
+		imageAlign: "center"
+	});
+	imageWindow.add(imageView);
+	imageNavWin.openWindow(imageWindow);

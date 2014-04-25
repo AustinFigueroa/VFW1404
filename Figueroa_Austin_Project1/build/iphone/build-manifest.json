@@ -1,0 +1,23 @@
+{
+	"target": "simulator",
+	"deployType": "development",
+	"deviceFamily": "iphone",
+	"iosSdkPath": "/Users/Austin/Library/Application Support/Titanium/mobilesdk/osx/3.2.2.GA/iphone",
+	"tiCoreHash": "77157e1ffaec640cf559356a147b6a4c",
+	"modulesHash": "d41d8cd98f00b204e9800998ecf8427e",
+	"modulesNativeHash": "d41d8cd98f00b204e9800998ecf8427e",
+	"gitHash": "96e9a07",
+	"name": "Figueroa_Austin_Project1",
+	"id": "com.FigueroaAustin.Project1",
+	"analytics": true,
+	"publisher": "Austin Figueroa",
+	"url": "http://",
+	"version": "1.0",
+	"description": "not specified",
+	"copyright": "2014 by Austin Figueroa",
+	"guid": "f2cdc4da-5f32-46a0-a48e-39a4d5fffbed",
+	"skipJSMinification": true,
+	"forceCopy": false,
+	"forceCopyAll": false,
+	"encryptJS": false
+}

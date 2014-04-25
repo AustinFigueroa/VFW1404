@@ -1,0 +1,105 @@
+Ti.UI.setBackgroundColor("#fff");
+
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoryListing();
+var margin = 10;
+var trueCanvasWidth = 320;
+var size = 70;
+
+
+	var imageWin = Ti.UI.createWindow({
+		title: "Image Gallery",
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	
+	var imageNavWin = Ti.UI.iOS.createNavigationWindow({
+		window: imageWin
+	});
+	
+	var border = Ti.UI.createView({
+	backgroundColor: "#333",
+	height: 1,
+	width: pWidth,
+	top: 20
+	});
+	
+	var viewContainer = Ti.UI.createScrollView({
+	top: 0,
+	layout: "horizontal",
+	width: pWidth,
+	height: pHeight-border.top-border.height,
+	contentWidth: pWidth,
+	showVerticalScrollIndicator: true,
+	backgroundColor: "#fef"
+	});
+
+	var getImage = function(){
+	var imageWindow = Ti.UI.createWindow({
+		title: this.title,
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	var imageView = Ti.UI.createImageView({
+		top: 30,
+		left: 15,
+		right: 15
+	});
+	imageWindow.add(imageView);
+	navWindow.openWindow(imageWindow);
+};
+
+	for(var i=0; i<imageFiles.length; i++){
+		
+		var view = Ti.UI.createView({
+		backgroundColor: "#fff",
+		top: 10,
+		left: 10,
+		width: size,
+		height:size
+		});
+		
+		var picView = Ti.UI.createImageView({
+		    image: "images/" + imageFiles[i],
+		    top: 0,
+		    width: view.width,
+		    hasChild: true
+		});
+		
+		if(Ti.Platform.name === "iPhone OS"){
+			picView.hasChild = false;
+			picView.hasDetail = true;
+		}
+	}
+		
+var getImage = function(dataSource){
+	var imageWindow = Ti.UI.createWindow({
+		title: this.title,
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	var imageView = Ti.UI.createImageView({
+		top: 30,
+		left: 15,
+		right: 15
+	});
+	
+	imageWindow.add(imageView);
+	imageNavWin.openWindow(imageWindow);
+};
+
+		picView.addEventListener("click", function(event){
+			getImage(event.source);
+			console.log(event.source.image);
+		});
+		
+    
+    view.add(picView);
+	viewContainer.add(view);
+	imageWin.add(border);
+	imageWin.add(viewContainer);
+	imageNavWin.add(imageWin);
+	imageNavWin.open();
+

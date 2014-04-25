@@ -1,0 +1,107 @@
+Ti.UI.setBackgroundColor("#fff");
+
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoryListing();
+var rowCount = 3;
+var margin = 10;
+var trueCanvasWidth = 320;
+var size = 70;
+
+
+
+var win = Ti.UI.createWindow({
+	backgroundColor: "#333",
+	top: 20
+});
+
+var myView = Ti.UI.createView({
+	backgroundColor: "#fff",
+	borderColor: "#000",
+	borderRadius: 5,
+	borderWidth: 1,
+	align: "center",
+	top: 225,
+	left: 20,
+	right: 20,
+	bottom: 225
+});
+
+var myText = Ti.UI.createLabel({
+	text:"Open Gallery",
+	color:"#000",
+	font: {fontSize: 24, fontFamily: "Arial"}
+});
+
+var getImages = function(){
+	var imageWin = Ti.UI.createWindow({
+		title: "Image Gallery",
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	
+	var closeButton = Ti.UI.createLabel({
+		text: "Close Window",
+		backgroundColor: "#333",
+		color: "#fff",
+		height: 50,
+		font:{fontSize: 14, fontFamily: "Arial"},
+		width: "100%",
+		bottom: 0,
+		textAlign: "center"
+	});
+	
+	var closeWindow = function(){
+		imageWin.close();
+		
+	};
+	
+	var border = Ti.UI.createView({
+	backgroundColor: "#cecece",
+	height: 1,
+	width: pWidth,
+	top: 20
+	});
+	
+	var viewContainer = Ti.UI.createScrollView({
+	top: 0,
+	layout: "horizontal",
+	width: pWidth,
+	height: pHeight-border.top-border.height,
+	contentWidth: pWidth,
+	showVerticalScrollIndicator: true,
+	backgroundColor: "#fef"
+	});
+
+	for(var i=0; i<imageFiles.length; i++){
+		var view = Ti.UI.createView({
+		backgroundColor: "#fff",
+		top: 10,
+		left: 10,
+		width: size,
+		height:size
+		});
+		var picView = Ti.UI.createImageView({
+		    image: "images/" + imageFiles[i],
+		});
+    view.add(picView);
+	viewContainer.add(view);
+	imageWin.add(border);
+	imageWin.add(viewContainer);
+	imageWin.open();
+	}
+	
+	closeButton.addEventListener("click", closeWindow);
+	imageWin.add(closeButton);
+	
+};
+
+
+
+
+myView.addEventListener("click", getImages);
+
+myView.add(myText);
+win.add(myView);
+win.open();

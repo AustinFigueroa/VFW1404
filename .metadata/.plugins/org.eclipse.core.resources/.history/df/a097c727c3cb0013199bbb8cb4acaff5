@@ -1,0 +1,39 @@
+var win = Ti.UI.createWindow({
+	title: "Image Gallery",
+	backgroundColor: "#f5f5f5",
+	layout: "horizontal"
+});
+
+var navigationImageWindow = Ti.UI.iOS.createNavigationWindow({});
+var leftPadding = rightPadding = 5;
+
+function removeAllChildren(scrollView) {
+	var children = scrollView.children.slice(0);
+	
+	for(var i = 0; i<children.length; ++i){
+		scrollView.remove(children[i]);
+	}
+	
+	var newImageSize = funtion({
+		var winWidth = Ti.Platform.displayCaps.platformWidth;
+		var winHeight = Ti.Platform.displayCaps.platformHeight;
+		imageSize = (Ti.Platform.displayCaps.platformWidth - (leftPadding + rightPadding)) / 4
+		return imageSize;
+	)};
+var buildChoiceWindow = function(scrollView, win){
+	imageSize = newImageSize();
+
+for (var i=0; i< Image.src_files.length; i++){
+	var imageContainer = Ti.UI.createImageView({
+		top: 0,
+		bottom: 0,
+		height: imageSize,
+		width: imageSize,
+		fileName : Image.src_files[i],
+		index : i
+	});
+	scrollView.add(imageContainer);
+}
+
+
+win.open();
