@@ -16,26 +16,6 @@ var size = 70;
 	var imageNavWin = Ti.UI.iOS.createNavigationWindow({
 		window: imageWin
 	});
-	
-	var closeButton = Ti.UI.createLabel({
-		text: "Close Window",
-		backgroundColor: "#333",
-		color: "#fff",
-		height: 50,
-		font:{fontSize: 14, fontFamily: "Arial"},
-		width: "100%",
-		bottom: 0,
-		textAlign: "center"
-		});
-		
-		var closeWindow = function(){
-		 var loadfile = require("app");
-		  imageNavWin.close();
-};
-		
-		closeButton.addEventListener("click", closeWindow);
-		imageNavWin.add(closeButton);
-	
 		
 	var border = Ti.UI.createView({
 	backgroundColor: "#333",
@@ -48,7 +28,7 @@ var size = 70;
 	top: 0,
 	layout: "horizontal",
 	width: pWidth,
-	height: pHeight-border.top-border.height-closeButton.height-50,
+	height: pHeight-border.top-border.height,
 	contentWidth: pWidth,
 	showVerticalScrollIndicator: true,
 	backgroundColor: "#fef"
@@ -99,6 +79,26 @@ picView.addEventListener("click", function(event){
 			getImage(event.source);
 		});
 };		
+
+
+	var closeButton = Ti.UI.createLabel({
+		text: "Close Window",
+		backgroundColor: "#333",
+		color: "#fff",
+		height: view.height,
+		font:{fontSize: 14, fontFamily: "Arial"},
+		width: "100%",
+		bottom: 0,
+		textAlign: "center"
+		});
+		
+		var closeWindow = function(){
+		 var loadfile = require("app");
+};
+		
+		closeButton.addEventListener("click", closeWindow);
+		imageNavWin.add(closeButton);
+	
 
 imageNavWin.add(imageWin);
 imageNavWin.open();

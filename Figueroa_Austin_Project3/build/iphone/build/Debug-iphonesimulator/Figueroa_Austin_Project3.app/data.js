@@ -30,6 +30,7 @@ var size = 70;
 		
 		var closeWindow = function(){
 		 var loadfile = require("app");
+		  imageNavWin.close();
 };
 		
 		closeButton.addEventListener("click", closeWindow);
@@ -47,7 +48,7 @@ var size = 70;
 	top: 0,
 	layout: "horizontal",
 	width: pWidth,
-	height: pHeight-border.top-border.height,
+	height: pHeight-border.top-border.height-closeButton.height-50,
 	contentWidth: pWidth,
 	showVerticalScrollIndicator: true,
 	backgroundColor: "#fef"
