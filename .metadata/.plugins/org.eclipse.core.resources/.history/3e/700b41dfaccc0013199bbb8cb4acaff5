@@ -73,7 +73,7 @@ var size = 70;
 view.add(picView);
 viewContainer.add(view);
 imageWin.add(border);
-imageWin.add(viewContainer);
+imageNavWin.add(viewContainer);
 	
 	
 var getImage = function(dataSource){
