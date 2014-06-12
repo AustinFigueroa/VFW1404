@@ -2,9 +2,9 @@
 <section name="Workbench">
 	<section name="PatchWizard">
 		<item value="700" key="DIALOG_WIDTH"/>
-		<item value="-17" key="DIALOG_Y_ORIGIN"/>
-		<item value="690" key="DIALOG_HEIGHT"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="276" key="DIALOG_X_ORIGIN"/>
+		<item value="690" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="PreviewPatchPage">

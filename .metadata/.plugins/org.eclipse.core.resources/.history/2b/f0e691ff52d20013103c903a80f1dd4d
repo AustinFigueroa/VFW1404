@@ -1,0 +1,43 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openCustomWin = function(){
+	
+	var customWin = Ti.UI.createWindow({
+		title: "Get HulkAlize",
+		backgroundColor: "134714",
+		layout: "vertical",
+		width: pWidth
+	});
+	
+	var getRandomInt = function (min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+// shortened list for example purposes
+var word = [
+    'One',
+    'Two',
+    'Three',
+    'Four',
+    'Five'
+];
+var lbl = Ti.UI.createLabel({
+    text: '',
+    top: 50
+});
+var btn = Ti.UI.createButton({
+    title: 'Press Me',
+    top: 100
+});
+btn.addEventListener("click", function (e) {
+    lbl.setText(word[getRandomInt(1, word.length) - 1]);
+});
+customWin.add(lbl);
+customWin.add(btn);
+	
+	navWin.openWindow(customWin);
+};
+
+
+
+customButton.addEventListener("click", openCustomWin);

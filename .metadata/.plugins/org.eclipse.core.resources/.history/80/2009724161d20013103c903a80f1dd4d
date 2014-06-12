@@ -1,0 +1,88 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openCustomWin = function(){
+	
+	var customWin = Ti.UI.createWindow({
+		title: "Get HulkAlize",
+		backgroundColor: "134714",
+		layout: "vertical",
+		width: pWidth
+	});
+		
+	var send = Titanium.UI.createButton({
+	    title : 'Send',
+	    style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
+	});
+	
+	var textfield = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: 'Focus to see keyboard with toolbar',
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10,
+	    width : 300, height : 35
+	});
+	var loseFocus = function(){
+		textfield.value = "";
+	};
+	var addFocus = function(){
+		if (textfield.value === ""){
+			textfield.value = "Focus to see keyboard with toolbar";
+		}
+	};
+	
+textfield.addEventListener("focus", loseFocus);
+textfield.addEventListener("blur", addFocus);
+
+
+var picker = Ti.UI.createPicker({
+  top:50 +textfield.height + textfield.top
+});
+
+var data = [];
+data[0]=Ti.UI.createPickerRow({title:'Planet Hulk'});
+data[1]=Ti.UI.createPickerRow({title:'Earth'});
+data[2]=Ti.UI.createPickerRow({title:'Alternate Earth'});
+
+picker.add(data);
+picker.selectionIndicator = true;
+
+var submitButton = Ti.Ui.createButton({
+	title: "Submit Story",
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 30, fontFamily: "Arial"},
+	bottom: 0,
+	width: pWidth,
+	height: 75
+});
+var yourStory = function(){
+
+var storyWindow = Ti.UI.createWindow({
+	title: "Your Own Hulk Story!",
+		backgroundColor: "#fff",
+		layout: "vertical",
+		width: pWidth
+	});
+
+var storyLabel = Ti.UI.createLabel({
+	text: "You have just been mutated"+ textfield.value +"
+});
+storyWindow.open();
+storyWindow.add(storyLabel);
+
+};
+submitButton.addEventListener("click", yourStory);
+	navWin.openWindow(customWin);
+	customWin.add(textfield);
+	customWin.add(picker);
+	customWin.add(submitButton);
+};
+
+
+
+customButton.addEventListener("click", openCustomWin);

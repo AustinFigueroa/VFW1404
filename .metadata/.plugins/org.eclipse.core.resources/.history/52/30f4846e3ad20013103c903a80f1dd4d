@@ -1,0 +1,52 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openGalleryWin = function(){
+	
+	var galleryWin = Ti.UI.createWindow({
+		title: "Hulk Gallery",
+		backgroundColor: "#1abc1e",
+		layout: "vertical",
+		width: pWidth
+	});
+		 
+	var randomPictures = function(){
+	 myImage.image = "imageFolder/"+myArray[i=0,i<6]; 
+	 var imgs = Ti.UI.createImageView({
+	 	image: dataSource.image,
+	 	left:10,
+		right:10,
+		top: 20,
+		height: 250,
+		borderRadius: 10
+	});
+	galleryWin.add(imgs);
+};
+	
+	var changeButton = Ti.UI.createView({
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 25, fontFamily: "Arial"},
+	top:430,
+	width: pWidth,
+	height: 75
+});
+
+var buttonText = Ti.UI.createLabel({
+text:"Change The Image",
+color:"#000",
+font: {fontSize: 24, fontFamily: "Arial"}
+});
+
+changeButton.addEventListener("click", randomPictures);
+
+changeButton.add(buttonText);
+galleryWin.add(changeButton);
+	navWin.openWindow(galleryWin);
+};
+
+
+
+galleryButton.addEventListener("click", openGalleryWin);
+

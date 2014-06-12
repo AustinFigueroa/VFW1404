@@ -1,0 +1,18 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openCustomWin = function(){
+	
+	var customWin = Ti.UI.createWindow({
+		title: "Get HulkAlize",
+		backgroundColor: "134714",
+		layout: "vertical",
+		width: pWidth
+	});
+	
+	navWin.openWindow(customWin);
+};
+
+
+
+customButton.addEventListener("click", openCustomWin);

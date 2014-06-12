@@ -1,0 +1,28 @@
+var differentHulks = {
+	"hulkKind":{
+		"HulkTitle": "The Different Kinds of Hulk",
+		"differentHulkNature": [
+		    {
+			    "title": "Green Hulk", 
+			    "description": "\"\Caught in the blast of gamma radiation, brilliant scientist Bruce Banner is cursed to transform in times of stress into the living engine of destruction known as THE INCREDIBLE HULK.\"\"
+			},
+			{
+				"title": "Grey Hulk", 
+			    "description": "Unlike the green Hulk this version speaks in proper English and is often sarcastic. This Hulk has control over himself, he is very powerful but not as powerful as Green Hulk."
+			},
+            {
+            	"title": "World War Hulk",
+            	"description": "Driven by complete rage World War Hulk cannot turn back into his original form, for he was driven out and sent to another planet only to return to let the anger he had against the ones who sent him away. He is by far the strongest Hulk."
+            },
+            {
+            	"title": "Professor Hulk",
+            	"description": "This is the idealized version of Bruce where he has all the strength of the Savage Hulk (aka Green Hulk) and the intelligence of Bruce Banner but none of the emotional baggage, awkwardness or shyness."
+            },
+            {
+            	"title": "Infernal Hulk",
+            	"description": "In one alternative reality, Bruce Banner and the Hulk were magically separated. Bruce became the new Sorceror Supreme, and the Hulk was cast into hell. However, while in hell, the Hulk became corrupted by the demonic beings he encountered, transforming him into a demon himself. Now completely evil, he escaped from hell and attempted to kill Banner. With help from the mainstream Hulk, Banner tricked the infernal Hulk into shattering the Eye of Agamotto, causing him to be thrown back into hell."
+            }
+       
+	}
+
+exports.hulkData = differentHulks;

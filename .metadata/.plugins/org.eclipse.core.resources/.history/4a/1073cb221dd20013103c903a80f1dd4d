@@ -1,0 +1,76 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openDataWin = function(){
+	var data = require("Jsondata");
+	
+	var dataWin = Ti.UI.createWindow({
+		title: "The Hulk Database",
+		backgroundColor: "#fff",
+		layout: "vertical",
+		width: pWidth
+	});
+	var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: dataWin
+});
+	var hulkTables = Ti.UI.createTableView({
+	top:0
+	});
+	
+	if(Ti.Platform.name === "iPhone OS"){
+		hulkTables.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+	}
+	
+var hulkSection = Ti.UI.createTableViewSection({
+	headerTitle: "The Different Kinds of Hulk",
+	footerTitle: "More coming soon!~"
+});
+
+var hulkSections = [hulkSection];
+	hulkTables.setData(hulkSections);
+	dataWin.add(hulkTables);
+
+var getDetail = function (){
+	var detailWindow = Ti.UI.createWindow({
+		title: this.title,
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+	    backgroundColor: "#fff"
+	});
+	var detailText = Ti.UI.createLabel({
+		text: this.desc,
+		font: {fontSize:14, fontFamily: "Arial", fontColor: "#000"},
+		top: 30,
+		left: 15,
+		right: 15
+	});
+	detailWindow.add(detailText);
+	navWindow.openWindow(detailWindow);
+};
+
+for(n in data.hulkData){
+	
+	for(m in data.hulkData[n].differentHulkNature){
+		var theRow = Ti.UI.createTableViewRow({
+		title: data.hulkData[n].differentHulkNature[m].title,
+		desc: data.hulkData[n].differentHulkNature[m].description,
+	    hasChild: true
+	});
+	
+	if(Ti.Platform.name === "iPhone OS"){
+		theRow.hasChild = false;
+		theRow.hasDetail = true;
+	
+	hulkSection.add(theRow);
+	theRow.addEventListener("click", getDetail);
+	};
+	};	
+};
+
+	
+	navWindow.open();
+	navWin.openWindow(dataWin);
+};
+
+
+
+dataButton.addEventListener("click", openDataWin);

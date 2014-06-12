@@ -1,0 +1,168 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openCustomWin = function(){
+	
+	var customWin = Ti.UI.createWindow({
+		title: "Get HulkAlize",
+		backgroundColor: "134714",
+		layout: "vertical",
+		width: pWidth
+	});
+		
+	var send = Titanium.UI.createButton({
+	    title : 'Send',
+	    style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
+	});
+	var question1 = Ti.UI.createLabel({
+		text:"What is your Hulk name?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"}
+		});
+		
+	var textfield = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: 'John Doe',
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question1.height,
+	    width : 300, height : 35
+	});
+	
+	var question2 = Ti.UI.createLabel({
+		text:"What is it that causes you to change?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"},
+		top: 10+ textfield.height
+		});
+		
+	var textfield2 = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: 'anger',
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question2.height,
+	    width : 300, height : 35
+	});
+	
+	var question3 = Ti.UI.createLabel({
+		text:"What color are you when you change?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"},
+		top: 10+ textfield2.height
+		});
+		
+	var textfield3 = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: 'color',
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question3.height,
+	    width : 300, height : 35
+	});
+	
+	var loseFocus = function(){
+		textfield.value = "";
+	};
+	var addFocus = function(){
+		if (textfield.value === ""){
+			textfield.value = "John Doe";
+		}
+	};
+	
+textfield.addEventListener("focus", loseFocus);
+textfield.addEventListener("blur", addFocus);
+textfield2.addEventListener("focus", loseFocus);
+textfield2.addEventListener("blur", addFocus);
+textfield3.addEventListener("focus", loseFocus);
+textfield3.addEventListener("blur", addFocus);
+
+
+var picker = Ti.UI.createPicker({
+  top:30 +textfield3.height + textfield3.top
+});
+
+var data = [];
+data[0]=Ti.UI.createPickerRow({title:'Planet Hulk'});
+data[1]=Ti.UI.createPickerRow({title:'Earth'});
+data[2]=Ti.UI.createPickerRow({title:'Alternate Earth'});
+
+picker.add(data);
+picker.selectionIndicator = true;
+
+var submitButton = Ti.UI.createButton({
+	title: "Submit Story",
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 30, fontFamily: "Arial"},
+	bottom: 0,
+	width: pWidth,
+	height: 75
+});
+var yourStory = function(){
+
+var storyWindow = Ti.UI.createWindow({
+		title: "Your Own Hulk Story!",
+		backgroundColor: "#fff",
+		layout: "vertical",
+		width: pWidth
+	});
+
+var storyLabel = Ti.UI.createLabel({
+	text: "You have just been mutated and after you've turned people are calling you "+ textfield.value +".Now you are haunted and everytime you're "+ textfield2.value + 
+	      " you change into this terrifying "+ textfield3.value +" colored monster. Now you are planning to hide away in "+ picker.data +".",
+	top: 20,
+	color:"#fff",
+	font: {fontSize: 14, fontFamily: "Arial"}
+});
+
+storyWindow.add(storyLabel);
+navWin.openWindow(storyWindow);
+};
+		
+	var border = Ti.UI.createView({
+	backgroundColor: "#333",
+	height: 1,
+	width: pWidth,
+	top: 20
+	});
+	
+	var viewContainer = Ti.UI.createScrollView({
+	top: 0,
+	layout: "horizontal",
+	width: pWidth,
+	height: pHeight-border.top-border.height-submitButton.height-50,
+	contentWidth: pWidth,
+	showVerticalScrollIndicator: true,
+	backgroundColor: "#fef"
+	});
+
+
+submitButton.addEventListener("click", yourStory);
+
+	navWin.openWindow(customWin);
+	customWin.add(question1);
+	customWin.add(textfield);
+	customWin.add(question2);
+	customWin.add(textfield2);
+	customWin.add(question3);
+	customWin.add(textfield3);
+	customWin.add(picker);
+	customWin.add(submitButton);
+	
+customWin.add(border);
+customWin.add(viewContainer);
+};
+
+
+
+customButton.addEventListener("click", openCustomWin);

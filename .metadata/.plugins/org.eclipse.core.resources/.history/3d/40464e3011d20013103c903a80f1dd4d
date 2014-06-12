@@ -1,0 +1,13 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.FileSystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoyListing();
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var galleryWin = Ti.UI.createWindow({
+	title: "Hulk Gallery",
+	backgroundColor: "#1abc1e",
+	layout: "vertical",
+	width: pWidth
+});
+
+galleryWin.open();

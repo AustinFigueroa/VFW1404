@@ -1,0 +1,42 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+
+var mainWin = Ti.UI.createWindow({
+	title: "The Hulk Kingdom",
+	backgroudColor: "#239b1d",
+	layout: "horizontal",
+	top: 20
+});
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	top: 0,
+	backgroundColor: "#cecece",
+	window: mainWin
+});
+
+var galleryButton = Ti.UI.createButton({
+	title: "Hulk Gallery",
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 25, fontFamily: "Arial"},
+	top: 20,
+	width: pWidth,
+	height: 75
+});
+
+var dataButton = Ti.UI.createButton({
+	title: "The Hulk Database",
+	backgroundColor: "#000",
+	textAlign: "center",
+	font: {fontSize: 25, fontFamily: "Arial"},
+	top: 20 + galleryButton.height,
+	width: pWidth,
+	height: 75
+});
+
+var loadFile = require("gallery");
+var loadFile = require("data");
+var loadFile = require("custom");
+mainWin.add(galleryButton);
+navWin.open();
+
+

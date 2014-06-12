@@ -1,0 +1,48 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "images");
+var imageFiles = imageFolder.getDirectoyListing();
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openGalleryWin = function(){
+	
+	var galleryWin = Ti.UI.createWindow({
+		title: "Hulk Gallery",
+		backgroundColor: "#1abc1e",
+		layout: "vertical",
+		width: pWidth
+	});
+	var imageArray = [
+		{Image: "Images/GreyHulk.jpg"},
+		{Image: "Images/Hulk.jpg"},
+		{Image: "Images/Hulk2.jpg"},
+		{Image: "Images/InfernalHulk.jpg"},
+		{Image: "Images/PictureIThoughtWasCoolSlashJustHulk.jpg"},
+		{Image: "Images/ProfessorHulk.jpg"},
+		{Image: "Images/WorldWarHulk.jpg"}
+		];
+		 
+	var randomPictures = function(){
+		for (i in imageArray)
+	 imgs = Ti.UI.createImageView({
+	 	image: [i]
+		
+	});
+	};
+	
+	var changeButton = Ti.UI.createButton({
+	title: "Change Current Picture",
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 25, fontFamily: "Arial"},
+	bottom: 20,
+	width: pWidth,
+	height: 75
+});
+galleryWin.add(changeButton);
+	navWin.openWindow(galleryWin);
+};
+
+
+
+galleryButton.addEventListener("click", openGalleryWin);
+

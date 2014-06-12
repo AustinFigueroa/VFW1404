@@ -1,0 +1,181 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openCustomWin = function(){
+	
+	var customWin = Ti.UI.createWindow({
+		title: "Get HulkAlize",
+		backgroundColor: "134714",
+		exitOnClose: true,
+		layout: "vertical",
+		width: pWidth
+	});
+		
+	var send = Titanium.UI.createButton({
+	    title : 'Send',
+	    style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
+	});
+	var question1 = Ti.UI.createLabel({
+		text:"What is your Hulk name?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"}
+		});
+		
+	var textfield = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: "Hulkzilla",
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question1.height,
+	    width : 300, height : 35
+	});
+	
+	var question2 = Ti.UI.createLabel({
+		text:"What is it that causes you to change?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"},
+		top: 10+ textfield.height
+		});
+		
+	var textfield2 = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: "being angry",
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question2.height,
+	    width : 300, height : 35
+	});
+	
+	var question3 = Ti.UI.createLabel({
+		text:"What color are you when you change?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"},
+		top: 10+ textfield2.height
+		});
+		
+	var textfield3 = Titanium.UI.createTextField({
+	    borderStyle : Titanium.UI.INPUT_BORDERSTYLE_BEZEL,
+	    value: "blue",
+	    color: "#fff",
+	    font: {fontSize: 14, fontFamily: "Arial"},
+	    keyboardToolbar : [send],
+	    keyboardToolbarColor : '#fff',
+	    keyboardToolbarHeight : 40,
+	    top : 10 + question3.height,
+	    width : 300, height : 35
+	});
+	
+	var loseFocus = function(){
+		textfield.value = "";
+	};
+	var loseFocus2 = function(){
+		textfield2.value = "";
+	};
+	var loseFocus3 = function(){	
+		textfield3.value = "";
+	};
+	var addFocus = function(){
+		if (textfield.value === ""){
+			textfield.value = "Hulkzilla";
+		}
+	};
+	var addFocus2 = function(){
+		if (textfield2.value === ""){
+			textfield2.value = "being angry";
+		}
+	};
+	var addFocus3 = function(){
+		if (textfield3.value === ""){
+			textfield3.value = "blue";
+		}
+	};
+	
+textfield.addEventListener("focus", loseFocus);
+textfield.addEventListener("blur", addFocus);
+
+textfield2.addEventListener("focus", loseFocus2);
+textfield2.addEventListener("blur", addFocus2);
+
+textfield3.addEventListener("focus", loseFocus3);
+textfield3.addEventListener("blur", addFocus3);
+
+var pickerLabel = Ti.UI.createLabel({
+		text:"Where would you like to go?",
+		color:"#fff",
+		font: {fontSize: 14, fontFamily: "Arial"},
+		top: textfield3.height
+		});
+
+var picker = Ti.UI.createPicker({
+  top:30 +textfield3.height + textfield3.top
+});
+
+var data = [];
+data[0]=Ti.UI.createPickerRow({title:'Planet Hulk'});
+data[1]=Ti.UI.createPickerRow({title:'Earth'});
+data[2]=Ti.UI.createPickerRow({title:'Alternate Earth'});
+data[3]=Ti.UI.createPickerRow({title:'Asgard'});
+data[4]=Ti.UI.createPickerRow({title:'Land of Shades'});
+data[5]=Ti.UI.createPickerRow({title:'Limbo'});
+data[6]=Ti.UI.createPickerRow({title:'Netherworld of Eternal Doom'});
+data[7]=Ti.UI.createPickerRow({title:'Nirvana'});
+data[8]=Ti.UI.createPickerRow({title:'Olympus'});
+data[9]=Ti.UI.createPickerRow({title:'Shadow Realm'});
+data[10]=Ti.UI.createPickerRow({title:'Therea'});
+
+picker.add(data);
+picker.selectionIndicator = true;
+
+var submitButton = Ti.UI.createButton({
+	title: "Submit Story",
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 30, fontFamily: "Arial"},
+	bottom: 0,
+	width: pWidth,
+	height: 50
+});
+var yourStory = function(){
+
+var storyWindow = Ti.UI.createWindow({
+		title: "Your Own Hulk Story!",
+		backgroundColor: "#fff",
+		layout: "vertical",
+		width: pWidth
+	});
+
+var storyLabel = Ti.UI.createLabel({
+	text: "You have just been mutated and after you've turned people are calling you "+ textfield.value +". Now you are haunted and "+ textfield2.value + 
+	      " it changes you into this terrifying "+ textfield3.value +" colored monster. Now you are planning to hide away in "+ picker.getSelectedRow(0).title +".",
+	top: 20,
+	color:"#000",
+	font: {fontSize: 14, fontFamily: "Arial"}
+});
+
+storyWindow.add(storyLabel);
+navWin.openWindow(storyWindow);
+};
+
+submitButton.addEventListener("click", yourStory);
+
+	navWin.openWindow(customWin);
+	customWin.add(question1);
+	customWin.add(textfield);
+	customWin.add(question2);
+	customWin.add(textfield2);
+	customWin.add(question3);
+	customWin.add(textfield3);
+	customWin.add(pickerLabel);
+	customWin.add(picker);
+	customWin.add(submitButton);
+};
+
+
+
+customButton.addEventListener("click", openCustomWin);

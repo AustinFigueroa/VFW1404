@@ -1,0 +1,74 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
+var openGalleryWin = function(){
+	
+	var galleryWin = Ti.UI.createWindow({
+		title: "Hulk Gallery",
+		backgroundColor: "#1abc1e",
+		layout: "vertical",
+		width: pWidth
+	});
+		 
+		 var imgs = Ti.UI.createImageView({
+		image: "",
+		left:10,
+		right:10,
+		top: 20,
+		height: 250,
+		borderRadius: 10
+		});
+				 
+	var changeButton = Ti.UI.createView({
+	backgroundColor: "#fff",
+	textAlign: "center",
+	font: {fontSize: 25, fontFamily: "Arial"},
+	width: pWidth,
+	height: 75
+});
+
+	var buttonText = Ti.UI.createLabel({
+	text:"Click for Image",
+	color:"#000",
+	font: {fontSize: 24, fontFamily: "Arial"}
+	});
+		 
+		 changeButton.add(buttonText);
+         galleryWin.add(changeButton);
+         galleryWin.add(imgs);
+         
+	 var imageArray = [
+		"Images/GreyHulk.jpg",
+		"Images/Hulk.jpg",
+		"Images/Hulk2.jpg",
+		"Images/InfernalHulk.jpg",
+		"Images/PictureIThoughtWasCoolSlashJustHulk.jpg",
+		"Images/ProfessorHulk.jpg",
+		"Images/WorldWarHulk.jpg"
+		];
+var prevNumberWas;
+var randomPictures = function(min, max){
+	return Math.floor(Math.random() * (max - min + 1) + min);
+	};
+var prevNumberWas;
+
+
+changeButton.addEventListener('click', function (e) {
+    imgs.image = (imageArray[randomPictures(1, imageArray.length) - 1]);
+    var fun = function(){
+    	var i = 0;
+	    if (i===prevNumberwas) {
+	    i = 6 
+	    } else {​
+	    prevNumberWas=i;
+	    }
+	};
+    });
+
+
+navWin.openWindow(galleryWin);
+
+};
+
+galleryButton.addEventListener("click", openGalleryWin);
